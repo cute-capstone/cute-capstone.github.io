@@ -3,91 +3,151 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>畢業專題網站展</title>
-<meta name="description" content="視覺傳達設計系 第 21 屆畢業專題 各組網站入口">
+<title>第 21 屆 專題網站入口｜中國科技大學視覺傳達設計系新竹校區</title>
+<meta name="description" content="中國科技大學視覺傳達設計系新竹校區 第 21 屆畢業專題 各組網站入口">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@400;600;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f3efe8; --ink:#1c1a17; --mute:#6e6860; --line:#d9d2c6; --card:#fffdf9; --accent:#d8432f;
+  --bg:#f3efe7; --paper:#fbf8f2; --ink:#1d1b18; --ink-2:#4a453e; --mute:#8d857a; --line:#d9d1c4; --accent:#b4432e;
   --sans:'Noto Sans TC',system-ui,-apple-system,'PingFang TC',sans-serif;
   --serif:'Noto Serif TC','Songti TC',serif;
+  --latin:'Cormorant Garamond','Noto Serif TC',Georgia,serif;
   --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  --gx:clamp(20px,3.2vw,48px);
 }
 @media (prefers-color-scheme:dark){
-  :root{ --bg:#16140f; --ink:#f1ece3; --mute:#a39b8f; --line:#3a352d; --card:#201d17; --accent:#ff6a52; }
+  :root{ --bg:#14120e; --paper:#1c1915; --ink:#f0ebe2; --ink-2:#cfc7ba; --mute:#958c7f; --line:#36302a; --accent:#e47a60; }
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--ink);font:400 16px/1.7 var(--sans);-webkit-font-smoothing:antialiased}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.75 var(--sans);-webkit-font-smoothing:antialiased;
+  height:100vh;height:100svh;display:flex;flex-direction:column;overflow:hidden;position:relative}
+/* 紙紋與外框 */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .4 0 0 0 0 .33 0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
 a{color:inherit;text-decoration:none}
-.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.wrap{width:100%;padding:0 var(--gx)}
 
-header{padding:72px 0 40px;border-bottom:1px solid var(--line)}
-.kicker{font:500 12px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
-h1{font:900 clamp(40px,7vw,84px)/1.05 var(--serif);letter-spacing:-.01em;margin:18px 0 20px}
-h1 small{display:block;font:400 clamp(15px,1.6vw,18px)/1.6 var(--sans);color:var(--mute);letter-spacing:.02em;margin-top:14px}
-.meta{display:flex;gap:28px;flex-wrap:wrap;font:400 13px/1 var(--mono);color:var(--mute)}
-.meta b{color:var(--ink);font-weight:500;margin-right:6px}
+.bar .wrap{display:flex;justify-content:space-between;align-items:center;height:clamp(40px,5.5vh,52px);font:400 10.5px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--mute);border-bottom:1px solid var(--line)}
+.bar b{color:var(--ink);font-weight:500}
+.bar .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-right:10px;vertical-align:1px}
 
-main{padding:40px 0 80px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
-a.card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -20px rgba(0,0,0,.35)}
-.cover{aspect-ratio:16/10;background:var(--line) center/cover no-repeat;position:relative}
-.no{position:absolute;left:14px;top:12px;font:500 12px/1 var(--mono);letter-spacing:.12em;background:var(--card);color:var(--ink);padding:6px 9px;border-radius:2px}
-.body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
-.body h2{font:900 24px/1.25 var(--serif)}
-.body .en{font:400 12px/1.2 var(--mono);color:var(--mute);letter-spacing:.06em}
-.body p{font-size:14.5px;color:var(--mute);flex:1}
-.go{margin-top:8px;font:500 13px/1 var(--mono);letter-spacing:.08em;color:var(--accent)}
-.card.soon{opacity:.6}
-.card.soon .cover{display:grid;place-items:center;font:500 12px/1 var(--mono);letter-spacing:.2em;color:var(--mute)}
-.card.soon .go{color:var(--mute)}
+header .wrap{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:end;padding-top:clamp(20px,4.5vh,52px);padding-bottom:clamp(16px,3.2vh,34px)}
+.school{font:400 clamp(12.5px,1.05vw,15px)/1.6 var(--serif);letter-spacing:.3em;color:var(--ink-2);display:flex;align-items:center;gap:14px}
+.school::before{content:"";width:28px;height:1px;background:var(--accent)}
+h1{margin-top:clamp(8px,1.6vh,16px);font:900 clamp(34px,min(4.6vw,7.4vh),70px)/1.05 var(--serif);letter-spacing:.03em;display:flex;align-items:baseline;flex-wrap:wrap;gap:0 .32em}
+h1 .ed{display:inline-flex;align-items:baseline;gap:.12em;font-weight:600}
+h1 .num{font:500 italic 1.45em/.8 var(--latin);color:var(--accent);letter-spacing:-.02em}
+h1 .sep{width:.5em;height:1px;background:var(--ink);align-self:center;opacity:.6}
+.side{display:flex;flex-direction:column;gap:clamp(10px,1.8vh,18px)}
+.lead{font:300 clamp(13.5px,1.05vw,15.5px)/1.95 var(--sans);color:var(--ink-2);letter-spacing:.04em}
+.lead em{font-style:normal;color:var(--ink);font-weight:500;background:linear-gradient(transparent 62%,color-mix(in srgb,var(--accent) 18%,transparent) 0)}
+.meta{display:flex;border-top:1px solid var(--line);padding-top:10px;gap:28px;font:400 10px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--mute);align-items:baseline}
+.meta b{font:500 26px/1 var(--latin);color:var(--ink);letter-spacing:0;margin-right:8px}
 
-footer{border-top:1px solid var(--line);padding:24px 0 40px;font:400 12px/1.6 var(--mono);color:var(--mute)}
-@media (max-width:560px){ .wrap{padding:0 16px} header{padding:48px 0 28px} .grid{grid-template-columns:1fr} }
+main{flex:1;min-height:0;display:flex;flex-direction:column;padding-bottom:clamp(10px,2vh,22px)}
+.sec{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--ink);padding-top:10px;margin-bottom:clamp(10px,2vh,20px);font:400 10.5px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.sec b{color:var(--ink);font-weight:500}
+.grid{flex:1;min-height:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2vw,30px)}
+.card{display:flex;flex-direction:column;min-height:0;opacity:0;transform:translateY(12px);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i)*.09s + .15s)}
+@keyframes rise{to{opacity:1;transform:none}}
+.top{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:8px}
+.no{font:500 italic 26px/1 var(--latin);color:var(--ink)}
+.en{font:400 9.5px/1.2 var(--mono);letter-spacing:.18em;color:var(--mute);text-align:right}
+.cover{position:relative;flex:1;min-height:120px;overflow:hidden;background:var(--line)}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.cover::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(0,0,0,.07);pointer-events:none}
+.cover::before{content:"";position:absolute;inset:8px;border:1px solid rgba(255,255,255,.55);z-index:1;pointer-events:none;opacity:0;transition:opacity .5s}
+.enter{position:absolute;z-index:2;left:12px;right:12px;bottom:12px;display:flex;justify-content:space-between;align-items:center;padding:10px 13px;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);font:500 10.5px/1 var(--mono);letter-spacing:.18em;color:var(--ink);transform:translateY(calc(100% + 16px));transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.enter i{font-style:normal;color:var(--accent);transition:transform .4s}
+.txt{padding-top:clamp(10px,1.6vh,16px);display:flex;flex-direction:column;gap:4px}
+.txt h2{font:600 clamp(17px,1.45vw,22px)/1.3 var(--serif);letter-spacing:.05em}
+.txt p{font:300 13px/1.75 var(--sans);color:var(--ink-2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:3.5em}
+.rule{height:1px;background:var(--line);margin-top:8px;position:relative;overflow:hidden}
+.rule::after{content:"";position:absolute;inset:0;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+a.card:hover .cover img,a.card:focus-visible .cover img{transform:scale(1.05)}
+a.card:hover .cover::before{opacity:1}
+a.card:hover .enter,a.card:focus-visible .enter{transform:none}
+a.card:hover .enter i{transform:translateX(4px)}
+a.card:hover .rule::after,a.card:focus-visible .rule::after{transform:scaleX(1)}
+a.card:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
+.card.soon .cover{display:grid;place-items:center;font:400 11px/1 var(--mono);letter-spacing:.2em;color:var(--mute)}
+.card.soon{filter:grayscale(1);opacity:.55}
+
+footer .wrap{display:flex;justify-content:space-between;gap:16px;align-items:center;height:clamp(34px,4.6vh,44px);border-top:1px solid var(--line);font:400 10.5px/1 var(--mono);letter-spacing:.08em;color:var(--mute)}
+
+@media (hover:none){.enter{transform:none}}
+/* 視窗太小時改成可捲動 */
+@media (max-width:1000px),(max-height:600px){
+  body{height:auto;overflow:visible}
+  main{flex:none}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 24px}
+  .cover{flex:none;aspect-ratio:4/3}
+  header .wrap{grid-template-columns:1fr;gap:20px}
+}
+@media (max-width:600px){
+
+  .wrap{padding:0 16px}
+  .bar .wrap span:last-child,footer .wrap span:last-child{display:none}
+  .school{letter-spacing:.14em}
+  .grid{grid-template-columns:1fr;gap:36px}
+  .cover{aspect-ratio:16/10}
+  footer .wrap{height:auto;padding-top:16px;padding-bottom:24px}
+}
+@media (prefers-reduced-motion:reduce){.card{animation:none;opacity:1;transform:none}.cover img,.enter,.rule::after{transition:none}}
 </style>
 </head>
 <body>
+<div class="bar"><div class="wrap"><span><i class="dot"></i><b>CUTE · VCD</b>&nbsp;&nbsp;Hsinchu Campus</span><span>Graduation Projects · Web Edition</span></div></div>
+
 <header>
   <div class="wrap">
-    <div class="kicker">Graduation Projects · Web</div>
-    <h1>畢業專題網站展<small>視覺傳達設計系 第 21 屆 · 各組專題網站入口</small></h1>
-    <div class="meta"><span><b id="n-live">0</b>組已上線</span><span><b id="n-all">0</b>組參展</span></div>
+    <div>
+      <div class="school">中國科技大學視覺傳達設計系新竹校區</div>
+      <h1><span class="ed">第<span class="num">21</span>屆</span><span class="sep"></span><span>專題網站入口</span></h1>
+    </div>
+    <div class="side">
+      <p class="lead">四組畢業專題，把各自追問的題目做成<em>可以走進去的網站</em>——從墓葬與告別、毛孩的一生、山林裡的毒菇，到灰燼裡重新長出的花。點選封面，進入每一組的世界。</p>
+      <div class="meta"><span><b id="n-all">0</b>Projects</span><span><b id="n-live">0</b>Online</span><span style="margin-left:auto">Class 21</span></div>
+    </div>
   </div>
 </header>
 
 <main class="wrap">
+  <div class="sec"><span><b>Index</b> · 作品索引</span><span>Select a project</span></div>
   <div class="grid" id="grid"></div>
 </main>
 
-<footer><div class="wrap">網站內容與插圖皆為各組學生創作，版權屬各組所有。</div></footer>
+<footer><div class="wrap"><span>網站內容與插圖皆為各組學生創作，版權屬各組所有。</span><span>CUTE VCD · Class 21</span></div></footer>
 
 <script>
 /* 新增一組：在下面加一筆。
    url 填 repo 名稱（例如 'dugu/'）；還沒上線就留空字串 ''，會顯示「準備中」。
-   cover 放在 covers/ 資料夾裡。 */
+   cover 放在 covers/ 資料夾裡；pos 是封面裁切的水平位置（0%＝最左、50%＝置中）。
+   四組以上會自動換列（桌機一列四組）。 */
 const SITES = [
-  { no:'01', name:'GOOD拜 未知國度', en:'GOODBAI', desc:'墓葬文化 × 推測設計，走進四冊國度。', url:'goodbai/', cover:'covers/goodbai.jpg' },
-  { no:'02', name:'毛²評估所', en:'MAOMAO', desc:'狗狗評估與一生模擬，認識陪伴的責任。', url:'maomao/', cover:'covers/maomao.jpg' },
-  { no:'03', name:'讀菇山行', en:'THE POISONOUS TRAIL', desc:'沿著一棵大樹從溪谷走到 3,000 公尺雪線，認識沿路的毒菇與牠們的環境。', url:'dugu/', cover:'covers/dugu.jpg' },
-  { no:'04', name:'灰燼生花', en:'ASH BLOOM', desc:'六個章節，看見灰燼裡長出的新生。', url:'ashbloom/', cover:'covers/ashbloom.jpg' },
+  { no:'01', name:'GOOD拜 未知國度', en:'GOODBAI', desc:'墓葬文化 × 推測設計，走進四冊國度。', url:'goodbai/', cover:'covers/goodbai.jpg', pos:'50%' },
+  { no:'02', name:'毛²評估所', en:'MAOMAO', desc:'狗狗評估與一生模擬，認識陪伴的責任。', url:'maomao/', cover:'covers/maomao.jpg', pos:'44%' },
+  { no:'03', name:'讀菇山行', en:'THE POISONOUS TRAIL', desc:'沿著一棵大樹從溪谷走到 3,000 公尺雪線，認識沿路的毒菇與牠們的環境。', url:'dugu/', cover:'covers/dugu.jpg', pos:'4%' },
+  { no:'04', name:'灰燼生花', en:'ASH BLOOM', desc:'六個章節，看見灰燼裡長出的新生。', url:'ashbloom/', cover:'covers/ashbloom.jpg', pos:'62%' },
 ];
 
 const grid = document.getElementById('grid');
-grid.innerHTML = SITES.map(s => {
+grid.innerHTML = SITES.map((s, i) => {
   const live = !!s.url;
   const tag = live ? 'a' : 'div';
-  const attr = live ? ` href="${s.url}"` : '';
-  const cover = s.cover ? ` style="background-image:url('${s.cover}')"` : '';
-  return `<${tag} class="card${live ? '' : ' soon'}"${attr}>
-    <div class="cover"${cover}><span class="no">NO.${s.no}</span>${live || s.cover ? '' : 'COMING SOON'}</div>
-    <div class="body"><span class="en">${s.en}</span><h2>${s.name}</h2><p>${s.desc}</p>
-    <span class="go">${live ? '進入網站 →' : '準備中'}</span></div></${tag}>`;
+  const attr = live ? ` href="${s.url}" aria-label="進入 ${s.name} 網站"` : '';
+  const img = s.cover ? `<img src="${s.cover}" alt="${s.name} 封面" loading="lazy" style="object-position:${s.pos || '50%'} 50%">` : 'COMING SOON';
+  return `<${tag} class="card${live ? '' : ' soon'}" style="--i:${i}"${attr}>
+    <div class="top"><span class="no">${s.no}</span><span class="en">${s.en}</span></div>
+    <div class="cover">${img}${live ? '<span class="enter">ENTER SITE<i>→</i></span>' : ''}</div>
+    <div class="txt"><h2>${s.name}</h2><p>${s.desc}</p><div class="rule"></div></div></${tag}>`;
 }).join('');
-document.getElementById('n-live').textContent = SITES.filter(s => s.url).length;
-document.getElementById('n-all').textContent = SITES.length;
+document.getElementById('n-live').textContent = String(SITES.filter(s => s.url).length).padStart(2, '0');
+document.getElementById('n-all').textContent = String(SITES.length).padStart(2, '0');
 </script>
 </body>
 </html>
