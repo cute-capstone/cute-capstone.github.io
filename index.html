@@ -139,7 +139,7 @@ const grid = document.getElementById('grid');
 grid.innerHTML = SITES.map((s, i) => {
   const live = !!s.url;
   const tag = live ? 'a' : 'div';
-  const attr = live ? ` href="${s.url}" aria-label="進入 ${s.name} 網站"` : '';
+  const attr = live ? ` href="${s.url}" target="_blank" rel="noopener" aria-label="在新分頁開啟 ${s.name} 網站"` : '';
   const img = s.cover ? `<img src="${s.cover}" alt="${s.name} 封面" loading="lazy" style="object-position:${s.pos || '50%'} 50%">` : 'COMING SOON';
   return `<${tag} class="card${live ? '' : ' soon'}" style="--i:${i}"${attr}>
     <div class="top"><span class="no">${s.no}</span><span class="en">${s.en}</span></div>
